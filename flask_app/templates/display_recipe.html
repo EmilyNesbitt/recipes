@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{onerecipe.name}}</h1>
+    <table>
+        <tr>
+            <td> Name:{{onerecipe.name}} </td>
+        </tr>
+        <tr>
+                Under 30 Minutes:                     
+                {% if onerecipe.u30 == 1 %}
+                <td>Under 30 Minutes: Yes</td>
+                {% else %}
+                <td>Under 30 Minutes: No</td>
+                {% endif %}
+        </tr>
+        <tr>
+            <td> Description:{{onerecipe.description}} </td>
+        </tr>
+        <tr>
+            <td> Instructions: {{onerecipe.instructions}}</td>
+        </tr>
+    </table>
+    {% if onerecipe.user_id == session.user_id %}
+    <form action = '/delete_recipe/{{ onerecipe.id}}' method ='post'>
+        <button type= 'submit'>Delete Recipe</button>
+    </form>
+    <a href='/edit_one_recipe/{{ onerecipe.id}}'>Edit recipe</a>
+    {%endif%}
+    <a href='/dash'>Home</a>
+    <a href='/logout'>Logout</a>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action= '/login'  method='post'>
+
+        <label for="email">Email:</label>
+        <input type='text' class="form-control" id='email' name='email'>
+
+        <label for="password">Password:</label>
+        <input type='password' class="form-control" id='password' name='password'>
+
+        <button type='submit'>Submit</button>
+    </form>
+    <a href='/dash'>HOME</a>
+    <a href='/create'>CREATE NEW USER</a>
+
+
+    <form action= '/makeuser'  method='post'>
+        <label for="first_name"> First Name:</label>
+        <input type='text' class="form-control" id='first_name' name='first_name'>
+
+        <label for="last_name">Last Name:</label>
+        <input type='text' class="form-control" id='last_name' name='last_name'>
+
+
+        <label for="password">choose a password (must be at least 8 characters):</label>
+        <input type='password' class="form-control" id='password' name='password'>
+
+        <label for="password">confirm password:</label>
+        <input type='password' class="form-control" id='password' name='confirmpassword'>
+        <!--NEED TO ADD IN CONFIRM PASSWORD TO MODELS-->
+
+        <label for="email">email:</label>
+        <input type="text" class="form-control" id="email" name='email'>
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+        {% if messages %}                            <!-- check if there are any messages -->
+            {% for message in messages %}            <!-- loop through the messages -->
+                <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+            {% endfor %}
+        {% endif %}
+    {% endwith %} 
+
+        <button type='submit'>Submit</button>
+    </form>
+    
+
+
+
+</html>

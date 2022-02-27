@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add New Recipe</h1>
+    <form action='/newrecipe' method='post'>
+        <label for="name">Name:</label>
+        <input type='text' class="form-control" id='name' name='name'>
+
+        <label for="description">Description:</label>
+        <input type='text' class="form-control" id='description' name='description'>
+
+        <label for="instructions"> instructions:</label>
+        <input type='text' class="form-control" id='instructions' name='instructions'>
+
+
+        <div>
+            <p>Does this take 30 minutes or less?</p>
+        <label for="u30">yes</label>
+        <input type='radio' class="form-control" id='u30' name='u30' value='1'>
+
+        <label for="u30">no</label>
+        <input type='radio' class="form-control" id='u30' name='u30' value='0'>
+        </div>
+        <label for="created_at"> Date made</label>
+        <input type='datetime' class="form-control" id='created_at' name='created_at' >
+        <button type='submit'>Create Recipe</button>
+    </form>
+    <a href='/dash'>home</a>
+    <a href='/logout'>logout</a>
+</body>
+</html>

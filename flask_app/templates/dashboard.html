@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome, {{ currentuser.first_name }}!</h1>
+    <h2>Recipes</h2>
+    <table>
+        <th>Name</th>
+        <th>Under 30 minutes?</th>
+        <th>Instructions</th>
+        <th>Actions</th>
+        {%for recipe in all_recipes%}
+            <tr>
+                <td>{{ recipe.name }}</td>
+                    {% if recipe.u30 == 1 %}
+                    <td>Yes</td>
+                    {% else %}
+                    <td>No</td>
+                    {% endif %}
+                <td><a href='/onerecipe/{{ recipe.id}}'>view recipe</a></td>
+                {% if recipe.user_id == currentuser.id %}
+                <td> 
+                    <a href='/edit_one_recipe/{{recipe.id}}'>edit</a>
+                    <form action = '/delete_recipe/{{ recipe.id}}' method ='post'>
+                    <button type= 'submit'>Delete Recipe</button>
+                    </form>
+                </td>
+                {% endif %}
+            </tr>
+        {%endfor%}
+        </table>
+
+        <a href='/create'>create</a>
+        <a href='/logout'>logout</a>
+</body>
+</html>
+
